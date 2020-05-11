@@ -25,8 +25,15 @@ async function getDomains() {
 
 const updateProductivity = () => {
   //TODO calculate productivity with an API instead of dummy values
-  p_score = 100;
-  document.getElementById('p_score').innerHTML = p_score + "%";
+  chrome.storage.sync.get('productivity', (data) => {
+    console.log(data);
+    if (Object.keys(data).length === 0 || data.productivity < 0) {
+      document.getElementById('p_score').innerHTML = "N/A";
+    }
+    else {
+      document.getElementById('p_score').innerHTML = data.productivity + "%";
+    }
+  })
 }
 //connects popup.js to background.js
 var port = chrome.extension.connect({

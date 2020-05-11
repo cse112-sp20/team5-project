@@ -5,8 +5,7 @@ var config = {
   projectId: "TODO",
   storageBucket: "TODO",
   messagingSenderId: "TODO",
-  appId: "TODO",
-  measurementId: "TODO"
+  appId: "TODO"
 };
 
 
